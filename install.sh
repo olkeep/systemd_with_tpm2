@@ -17,20 +17,6 @@ function prereqs()
 
 	read -p "Enter to continue"
 }
-function install_docker()
-{
-	apt install -y docker.io
-}
-
-function compile_systemd_with_tpm2()
-{
-	./build_systemd_with_tpm2_support.sh
-}
-
-function install_systemd_with_tpm2()
-{
-	dpkg -i systemd_249.11-0ubuntu*_amd64.deb libsystemd0_249.11-0ubuntu*_amd64.deb
-}
 
 function install_crypt_setup_mod_scripts()
 {
@@ -61,9 +47,6 @@ function update_initramfs()
 function tldr_just_work()
 {
 	prereqs && \
-	install_docker && \
-	compile_systemd_with_tpm2 && \
-	install_systemd_with_tpm2 && \
 	install_crypt_setup_mod_scripts && \
 	update_initramfs && \
 	echo SystemD with TPM2 installation complete.
